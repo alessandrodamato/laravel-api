@@ -1,0 +1,19 @@
+main{
+  .crud-table{
+    input, select{
+      border: none;
+      outline: none;
+    }
+    .select-empty{
+      color: #757575;
+    }
+  }
+  #uploaded-file{
+    height: 38px;
+    border: 1px solid #dfe2e6;
+  }
+  #file-remover{
+    margin-top: 32px;
+  }
+}
+
