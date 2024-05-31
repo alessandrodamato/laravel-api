@@ -4,7 +4,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link me-3" href="{{route('home')}}">Vai al sito pubblico</a>
+            <a class="nav-link me-3" href="http://localhost:5174/">Vai al sito pubblico</a>
           </li>
           <li class="nav-item me-3">
             <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
