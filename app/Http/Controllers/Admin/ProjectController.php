@@ -65,7 +65,7 @@ class ProjectController extends Controller
 
       if(array_key_exists('image', $form_data)){
 
-        $file = Storage::put('uploads', $form_data['image']);
+        $file = Storage::disk('public')->put('uploads', $form_data['image']);
         $original_name = $request->file('image')->getClientOriginalName();
 
         $form_data['image'] = $file;
@@ -128,7 +128,7 @@ class ProjectController extends Controller
 
       if(array_key_exists('image', $form_data) && $form_data['isUploaded'] == 'true'){
 
-        $file = Storage::put('uploads', $form_data['image']);
+        $file = Storage::disk('public')->put('uploads', $form_data['image']);
         $original_name = $request->file('image')->getClientOriginalName();
 
         $form_data['image'] = $file;

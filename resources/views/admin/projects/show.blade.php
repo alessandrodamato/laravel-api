@@ -21,6 +21,10 @@
     </form>
   </h1>
 
+  <div>
+    <img src="{{asset('storage/' . $project->image)}}" alt="{{$project->image_original_name}}">
+  </div>
+
   <h3 class="mb-3"><strong>Creatore: </strong>{{$project->creator}}</h3>
   <h3 class="mb-3"><strong>Obiettivo: </strong>{{$project->objective}}</h3>
   @if ($project->type)
