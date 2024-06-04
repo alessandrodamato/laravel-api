@@ -12,7 +12,7 @@
 
 <div class="container text-center">
 
-  <h1 class="text-center mb-5">{{$project->name}}
+  <h1 class="text-center mb-3">{{$project->name}}
     <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
     <form onsubmit="return confirm('Sei sicuro di voler eliminare {{$project->name}} ?')" action="{{route('admin.projects.destroy', $project)}}" method="POST" class="d-inline-block">
       @csrf
@@ -22,7 +22,7 @@
   </h1>
 
   <div>
-    <img src="{{asset('storage/' . $project->image)}}" alt="{{$project->image_original_name}}">
+    <img class="img-fluid w-50 mb-3" src="{{asset('storage/' . $project->image)}}" alt="{{$project->image_original_name}}">
   </div>
 
   <h3 class="mb-3"><strong>Creatore: </strong>{{$project->creator}}</h3>
@@ -37,7 +37,7 @@
       @endforeach
     </h3>
   @endif
-  <p>{{$project->description}}</p>
+  <p class="m-0">{{$project->description}}</p>
 
 </div>
 
