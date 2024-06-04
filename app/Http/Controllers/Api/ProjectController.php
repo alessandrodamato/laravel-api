@@ -24,4 +24,9 @@ class ProjectController extends Controller
       $types = Type::all();
       return response()->json($types);
     }
+
+    public function getProjectDetail($slug){
+      $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
+      return response()->json($project);
+    }
 }
