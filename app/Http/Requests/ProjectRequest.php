@@ -25,7 +25,7 @@ class ProjectRequest extends FormRequest
           'name' => 'required|min:3|max:100',
           'creator' => 'required|min:3|max:100',
           'objective' => 'required|min:3|max:50',
-          'file' => "mimes:pdf|max:20000",
+          'image' => "mimes:jpg,jpeg,png|max:20000",
           'description' => 'required|min:30'
         ];
     }
@@ -41,8 +41,8 @@ class ProjectRequest extends FormRequest
         'objective.required' => 'Inserire l\'obiettivo',
         'objective.min' => 'Il campo obiettivo deve avere almeno :min caratteri',
         'objective.max' => 'Il campo obiettivo deve avere massimo :max caratteri',
-        'file.mimes' => 'Il file caricato non è in formato .pdf',
-        'file.max' => 'Il file caricato è troppo grande (max. 20mb)',
+        'image.mimes' => 'Il formato caricato non è supportato',
+        'image.max' => 'Il file caricato è troppo grande (max. 20mb)',
         'description.required' => 'La descrizione è obbligatoria',
         'description.min' => 'La descrizione è troppo breve (inferiore a :min caratteri)'
       ];

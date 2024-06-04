@@ -98,14 +98,14 @@
 
             <div class="col-6">
               <div class="mb-3">
-                <label for="file" class="form-label">File .pdf</label>
+                <label for="image" class="form-label">Immagine</label>
                 <input type="hidden" name="isUploaded" value="true" id="isUploaded">
                 <div class="d-flex">
-                  <div id="uploaded-file" class="w-100 overflow-auto d-flex align-items-center rounded-2 px-2 {{old('file', $project?->file) ? 'd-block' : 'd-none'}}"><span>{{$project?->file_original_name}}</span></div>
-                  <input name="file" type="file" class="form-control {{old('file', $project?->file) ? 'd-none' : 'd-inline-block'}} @error('file') is-invalid @enderror" id="file"
-                    placeholder="Carica un file .pdf" value="{{old('file', $project?->file)}}" onchange="addFile()">
+                  <div id="uploaded-file" class="w-100 overflow-auto d-flex align-items-center rounded-2 px-2 {{old('image', $project?->image) ? 'd-block' : 'd-none'}}"><span>{{$project?->image_original_name}}</span></div>
+                  <input name="image" type="file" class="form-control {{old('image', $project?->image) ? 'd-none' : 'd-inline-block'}} @error('image') is-invalid @enderror" id="image"
+                    placeholder="Carica immagine" value="{{old('image', $project?->image)}}" onchange="addFile()">
                 </div>
-                @error('file')
+                @error('image')
                 <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                 @enderror
               </div>
@@ -113,7 +113,7 @@
 
             <div class="col-3">
               <div class="mb-3">
-                <button class="btn btn btn-outline-danger {{old('file', $project?->file) ? 'd-inline-block' : 'd-none'}}" id="file-remover" onclick="event.preventDefault(); resetFile()">Rimuovi file</button>
+                <button class="btn btn btn-outline-danger {{old('image', $project?->image) ? 'd-inline-block' : 'd-none'}}" id="file-remover" onclick="event.preventDefault(); resetFile()">Rimuovi file</button>
               </div>
             </div>
 
@@ -173,15 +173,15 @@
   isUploaded = document.getElementById('isUploaded');
   uploadedFile = document.getElementById('uploaded-file');
   fileRemover = document.getElementById('file-remover');
-  file = document.getElementById('file');
+  image = document.getElementById('image');
 
   function resetFile(){
     isUploaded.value = false;
-    file.value = '';
+    image.value = '';
     uploadedFile.classList.add('d-none');
     fileRemover.classList.add('d-none');
-    file.classList.remove('d-none');
-    file.classList.add('d-inline-block');
+    image.classList.remove('d-none');
+    image.classList.add('d-inline-block');
   }
 
   function addFile(){

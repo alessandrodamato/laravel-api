@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Functions\Helpers;
-use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
@@ -64,16 +63,16 @@ class ProjectController extends Controller
 
       $form_data = $request->all();
 
-      if(array_key_exists('file', $form_data)){
+      if(array_key_exists('image', $form_data)){
 
-        $file = Storage::put('uploads', $form_data['file']);
-        $original_name = $request->file('file')->getClientOriginalName();
+        $file = Storage::put('uploads', $form_data['image']);
+        $original_name = $request->file('image')->getClientOriginalName();
 
-        $form_data['file'] = $file;
+        $form_data['image'] = $file;
         $form_data['original_name'] = $original_name;
 
       } else {
-        $form_data['file'] = null;
+        $form_data['image'] = null;
         $form_data['original_name'] = null;
       }
 
@@ -83,8 +82,8 @@ class ProjectController extends Controller
       $new_item->type_id = $form_data['type_id'];
       $new_item->creator = $form_data['creator'];
       $new_item->objective = $form_data['objective'];
-      $new_item->file = $form_data['file'];
-      $new_item->file_original_name = $form_data['original_name'];
+      $new_item->image = $form_data['image'];
+      $new_item->image_original_name = $form_data['original_name'];
       $new_item->description = $form_data['description'];
 
       $new_item->save();
@@ -127,22 +126,22 @@ class ProjectController extends Controller
 
       $form_data = $request->all();
 
-      if(array_key_exists('file', $form_data) && $form_data['isUploaded'] == 'true'){
+      if(array_key_exists('image', $form_data) && $form_data['isUploaded'] == 'true'){
 
-        $file = Storage::put('uploads', $form_data['file']);
-        $original_name = $request->file('file')->getClientOriginalName();
+        $file = Storage::put('uploads', $form_data['image']);
+        $original_name = $request->file('image')->getClientOriginalName();
 
-        $form_data['file'] = $file;
+        $form_data['image'] = $file;
         $form_data['original_name'] = $original_name;
 
-      } elseif (!array_key_exists('file', $form_data) && $form_data['isUploaded'] == 'true') {
+      } elseif (!array_key_exists('image', $form_data) && $form_data['isUploaded'] == 'true') {
 
-        $form_data['file'] = $project->file;
-        $form_data['original_name'] = $project->file_original_name;
+        $form_data['image'] = $project->image;
+        $form_data['original_name'] = $project->image_original_name;
 
       } else {
 
-        $form_data['file'] = null;
+        $form_data['image'] = null;
         $form_data['original_name'] = null;
 
       }
@@ -152,8 +151,8 @@ class ProjectController extends Controller
       $project->type_id = $form_data['type_id'];
       $project->creator = $form_data['creator'];
       $project->objective = $form_data['objective'];
-      $project->file = $form_data['file'];
-      $project->file_original_name = $form_data['original_name'];
+      $project->image = $form_data['image'];
+      $project->image_original_name = $form_data['original_name'];
       $project->description = $form_data['description'];
 
       $project->update();
