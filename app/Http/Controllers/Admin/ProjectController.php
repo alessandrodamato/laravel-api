@@ -78,7 +78,7 @@ class ProjectController extends Controller
 
       $new_item = new Project();
       $new_item->name = $form_data['name'];
-      $new_item->slug = Helpers::generateSlug($new_item->name, new Project());
+      $new_item->slug = Helpers::generateSlug($new_item->name, Project::class);
       $new_item->type_id = $form_data['type_id'];
       $new_item->creator = $form_data['creator'];
       $new_item->objective = $form_data['objective'];
@@ -146,8 +146,14 @@ class ProjectController extends Controller
 
       }
 
+      if ($form_data['name'] === $project->name){
+        $form_data['slug'] = $project->slug;
+      } else {
+        $form_data['slug'] = Helpers::generateSlug($form_data['name'], Project::class);
+      }
+
       $project->name = $form_data['name'];
-      $project->slug = Helpers::generateSlug($project->name, new Project());
+      $project->slug = $form_data['slug'];
       $project->type_id = $form_data['type_id'];
       $project->creator = $form_data['creator'];
       $project->objective = $form_data['objective'];

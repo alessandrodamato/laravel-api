@@ -40,7 +40,7 @@
       <thead>
         <tr>
           <th class="w-5" scope="col">
-            <a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'id', 'dir' => $dir])}}">ID
+            <a class="text-black text-decoration-none hov-underline" href="{{route('admin.order-by', ['col' => 'id', 'dir' => $dir])}}">ID
               @if ($dir === 'desc' && $col === 'id')
                 <i class="fa-solid fa-sort-down"></i>
               @elseif ($dir === 'asc' && $col === 'id')
@@ -49,7 +49,7 @@
             </a>
           </th>
           <th class="w-15" scope="col">
-            <a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'name', 'dir' => $dir])}}">Nome
+            <a class="text-black text-decoration-none hov-underline" href="{{route('admin.order-by', ['col' => 'name', 'dir' => $dir])}}">Nome
               @if ($dir === 'desc' && $col === 'name')
                 <i class="fa-solid fa-sort-down"></i>
               @elseif ($dir === 'asc' && $col === 'name')
@@ -58,7 +58,7 @@
             </a>
           </th>
           <th class="w-15" scope="col">
-            <a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'creator', 'dir' => $dir])}}">Creatore
+            <a class="text-black text-decoration-none hov-underline" href="{{route('admin.order-by', ['col' => 'creator', 'dir' => $dir])}}">Creatore
               @if ($dir === 'desc' && $col === 'creator')
                 <i class="fa-solid fa-sort-down"></i>
               @elseif ($dir === 'asc' && $col === 'creator')
@@ -67,7 +67,7 @@
             </a>
           </th>
           <th scope="col">
-            <a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'objective', 'dir' => $dir])}}">Obiettivo
+            <a class="text-black text-decoration-none hov-underline" href="{{route('admin.order-by', ['col' => 'objective', 'dir' => $dir])}}">Obiettivo
               @if ($dir === 'desc' && $col === 'objective')
                 <i class="fa-solid fa-sort-down"></i>
               @elseif ($dir === 'asc' && $col === 'objective')
