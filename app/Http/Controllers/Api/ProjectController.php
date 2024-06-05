@@ -27,13 +27,18 @@ class ProjectController extends Controller
 
     public function getProjectDetail($slug){
       $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
-      if($project->image){
-        $project->image = asset('storage/' . $project->image);
+      if ($project){
+        $success = true;
+        if($project->image){
+          $project->image = asset('storage/' . $project->image);
+        } else {
+          $project->image = 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=';
+          $project->image_original_name = '-';
+        }
       } else {
-        $project->image = 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=';
-        $project->image_original_name = '-';
+        $success = false;
       }
-      return response()->json($project);
+      return response()->json(compact('success', 'project'));
     }
 
     public function getProjectsByTechnology($slug){
