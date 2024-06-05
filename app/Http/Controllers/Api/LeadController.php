@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use App\Models\Lead;
 
 class LeadController extends Controller
 {
@@ -38,6 +39,10 @@ class LeadController extends Controller
         $errors = $validator->errors();
         return response()->json(compact('success', 'errors'));
       }
+
+      $new_lead = new Lead();
+      $new_lead->fill($form_data);
+      $new_lead->save();
 
       $success = true;
       return response()->json(compact('success'));
